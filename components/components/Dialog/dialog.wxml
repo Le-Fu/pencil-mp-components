@@ -1,0 +1,18 @@
+<view class='dialog-container' hidden="{{!visible}}">
+  <view class='dialog-mask' />
+  <view class='dialog'>
+    <view class='dialog-header'>
+      <block wx:if='{{dialogType=="warning"}}'>
+        <image class='dialog-icon' src='./assets/warning.png'></image>
+      </block>
+    </view>
+    <view class='dialog-body'>
+      {{content}}
+      <slot></slot>
+    </view>
+    <view class='dialog-footer'>
+      <button class='dialog-footer-btn dialog-footer-cancel-btn' catchtap='_cancelEvent' hidden='{{isShowCancel}}'>{{cancelText}}</button>
+      <button class='dialog-footer-btn dialog-footer-confirm-btn' catchtap='_confirmEvent'>{{confirmText}}</button>
+    </view>
+  </view>
+</view>
